@@ -1,0 +1,143 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+
+       <!--  {% if form.errors %}
+            <div class="alert alert-warning" role="alert">
+                You must agree to the Terms and Conditions
+            </div>
+        {% endif %} -->
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <div align="center">
+                    <legend class="border-bottom mb -4">
+                        <h2>Employee Registration</h2>
+                    </legend>
+                </div>
+
+
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_name"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Full Name"
+                        maxlength="60"
+                        required id="id_emp_name">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_id"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="ID Number"
+                        maxlength="15"
+                        required id="id_emp_id">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_mob"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Mobile Number"
+                        maxlength="15"
+                        required id="id_emp_mob">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_email"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Email"
+                        maxlength="254"
+                        required id="id_emp_email">
+               </div>
+
+
+               <div class="form-group">
+                    {{ form.date.as_hidden }}
+                    <!-- <input type="hidden" name="profile" value="{{ profile }}" required id="id_profile"> -->
+                </div>
+
+                <div class="form-group">
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary btn-sm">
+                            <input type="checkbox" name="check" required id="id_check">
+                                I Agree to the Terms & Conditions
+                        </label>
+
+                        <label>
+                            <a href="#" class="text-secondary" data-toggle="modal" data-target="#termsandconditions"><small>Press Here to Read Terms & Conditions</small></a>
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+            <div class="form-group">
+
+                <button
+                    class="btn btn-info btn-lg"
+                    type="submit">
+                        Create
+                </button>
+
+                <button
+                    class="btn btn-secondary btn-lg"
+                    type="submit">
+                        Cancel
+                </button>
+
+            </div>
+        </form>
+
+        <div class="modal fade" id="termsandconditions" tabindex="-1" role="dialog" aria-labelledby="termsandconditionsTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="termsandconditionsTitle">Terms & Conditions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p align="left">
+                    NBTS is committed to the principles inherent in the General Data Protection Regulation (GDPR) EU 2016/679 and the Data Protection Act (CAP586).
+                </p>
+
+                <p align="left">
+                    Data is processed lawfully, fair, transparent, minimised and as necessary.
+                </p>
+
+                <p align="left">
+                    Data is accurate and updated accordingly.
+                </p>
+
+                <p align="left">
+                    Data is stored safely and securely. Retention period of personal data provided is stored until contract with supplier is terminated. Retention period of entry/exit data is stored till 12 midnight of every day.
+                </p>
+
+                <p align="left">
+                    Data Subject has the right of rectification and erasure of data, unless otherwise stated in a legal obligation.
+                </p>
+
+                <p align="left">
+                    Your personal information will not be disclosed to third parties unless strictly required by law.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

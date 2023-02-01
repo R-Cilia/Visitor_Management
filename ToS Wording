@@ -1,0 +1,63 @@
+template = 'visitor_management/termsandconditions.html'
+
+	if request.method == "POST":
+
+		if 'disagree' in request.POST:
+			parameters = {'vis': '1', 'disagree': '1'}
+			return render(request, template, parameters)
+
+		elif 'agree' in request.POST:
+			parameters = {'vis': '1', 'agree': '1'}
+			return render(request, template, parameters)
+
+
+-------------------------------------------------------------------------------------
+
+Client secret is:                 I8uJ7tC1bH7cW3wL2lG5gA5eX4nV7xP2xU8tC0yF4yH1kC0gK6
+
+ 
+
+Client ID:                            a9023dc0-2638-4eeb-be79-caafa5aa9d54
+
+-------------------------------------------------------------------------------------
+
+
+<label>I Agree to the <a href="{% url 'vm-terms' %}" class="text-primary">Terms and Conditions</a></label>
+
+
+
+
+<div class="row; md-form my-3">
+                    <div class="column">
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-secondary btn-sm">
+                                <input type="checkbox" name="check">
+                                    I Agree to the Terms & Conditions
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <label>
+                            <a href="#" class="text-secondary" data-toggle="modal" data-target="#termsandconditions"><small>Press Here to Read Terms & Conditions</small></a>
+                        </label>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <div class="md-form my-3">
+
+                <button
+                    class="btn btn-info btn-lg"
+                    type="submit">
+                        Create
+                </button>
+
+                <button
+                    class="btn btn-secondary btn-lg"
+                    type="submit">
+                        Cancel
+                </button>
+
+            </div>

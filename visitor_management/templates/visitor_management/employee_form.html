@@ -1,0 +1,42 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block script %}
+
+	<div align="center" class="container-fluid">
+
+		<form
+			action="{% url 'vm-empIN' %}"
+			method="POST">
+				{% csrf_token %}
+
+				<div class="form-group">
+					<input
+						name='emp_name'
+						align="center"
+						class="form-control"
+						type="search"
+						placeholder="Please enter your name"
+						required id="id_emp_name">
+				</div>
+
+				<div class="md-form my-3">
+					{{ form.date.as_hidden }}
+					{{ form.status.as_hidden }}
+				</div>
+
+				<div class="form-group">
+					<button
+						align="center"
+						class="btn btn-primary btn-lg"
+						type="submit"
+						name="enter"
+						value="confirm">
+							Punch IN
+					</button>
+				</div>
+
+		</form>
+
+	</div>
+
+{% endblock script %}

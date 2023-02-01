@@ -1,0 +1,21 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+		<h1 class="h2">Dashboard</h1>
+	</div>
+
+	<div align="center">
+		<legend class="content-section" align="center">
+			<a href="{% url 'use-dashboard_employees' %}">Employee Manager</a>
+		</legend>
+	</div>
+
+    <div align="center">
+        <legend class="content-section" align="center">
+           <a href="{% url 'use-dashboard_visitors' %}">Visitors</a>
+        </legend>
+    </div>
+
+{% endblock content %}

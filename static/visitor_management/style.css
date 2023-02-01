@@ -1,0 +1,16 @@
+#bg {
+  background-image:url('img/Logo.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+
+#logo {
+  image:url('img/Logo.png');
+  position:fixed;
+	top:0;
+	right:0;
+  width: 100px
+}

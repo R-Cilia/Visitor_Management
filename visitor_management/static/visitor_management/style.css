@@ -1,0 +1,8 @@
+#bg {
+  background-image:url('img/Logo.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}

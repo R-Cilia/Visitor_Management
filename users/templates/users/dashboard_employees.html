@@ -1,0 +1,68 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div align="center">
+        <legend class="content-section" align="center">
+            Employee Manager
+        </legend>
+    </div>
+
+    {% for emp in object_list %}
+
+        <div class="border-bottom mb-2">
+
+            <a class="mr-2" href="{% url 'use-dashboard_detail' emp.id %}">
+                {{ emp.emp_name }}
+            </a>
+
+            <small class="text-muted">
+                EMAIL:  {{ emp.emp_email }} |
+            </small>
+
+            <small class="text-muted">
+                MOBILE: {{ emp.emp_mob }}
+            </small>
+
+
+        </div>
+
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <div align="right">
+            <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'use-dashboard_create' %}">Create New Employee</a>
+        </div>
+    {% endif %}
+
+    <div align="center">
+        <legend class="content-section" align="center">
+            Employees On Premises
+        </legend>
+    </div>
+
+    {% for employee in employees %}
+        {% if employee.status == True %}
+
+        <div class="border-bottom mb-2">
+            <a class="mr-2" href="#">
+                {{ employee.emp_name }}
+            </a>
+
+            <small class="text-muted">
+                MOB:    {{ employee.emp_mob }}
+            </small>
+
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <div align="right">
+            <a class="btn btn-info btn-lg" href="{% url 'use-dashboard_visitors_export' %}">Export as CSV</a>
+        </div>
+    {% endif %}
+
+
+
+{% endblock content %}

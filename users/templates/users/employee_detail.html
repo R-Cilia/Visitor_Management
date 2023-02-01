@@ -1,0 +1,50 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="content-section">
+
+        <div align="center">
+            <legend class="content-section">
+               Employee Details
+            </legend>
+        </div>
+
+        <div class="border-bottom">
+            Full Name:      {{ object.emp_name }}
+        </div>
+
+        <div class="border-bottom">
+            ID No.:      {{ object.emp_id }}
+        </div>
+
+        <div class="border-bottom">
+            Email:      {{ object.emp_email }}
+        </div>
+
+        <div class="border-bottom">
+            Mobile No.:       {{ object.emp_mob }}
+        </div>
+
+        <div align="right">
+
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'use-dashboard_update' object.id %}">
+                    Update
+                </a>
+
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'use-dashboard_delete' object.id %}">
+                    Delete
+                </a>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+{% endblock content %}

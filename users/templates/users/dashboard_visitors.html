@@ -1,0 +1,40 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div align="center">
+            <legend class="content-section" align="center">
+               Visitors on Premises
+            </legend>
+        </div>
+
+        {% for visitor in visitors %}
+            {% if visitor.status == True %}
+
+            <div class="border-bottom mb-2">
+                <a class="mr-2" href="#">
+                    {{ visitor.vis_name }}
+                </a>
+
+                <small class="text-muted">
+                    MOB:    {{ visitor.vis_mob }}
+                </small>
+
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            <div align="right">
+                <a class="btn btn-info btn-lg" href="{% url 'use-dashboard_visitors_export' %}">Export as CSV</a>
+            </div>
+        {% endif %}
+
+
+    </div>
+
+
+
+{% endblock content %}

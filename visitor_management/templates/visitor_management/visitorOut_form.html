@@ -1,0 +1,99 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+	<div align="center" class="container-fluid">
+
+		<legend>
+			Is this You?
+		</legend>
+		<legend>
+			<small class="text-muted">
+				Not You? <a class="ml-2" href="{% url 'vm-visOUT' %}">Press Here</a>
+			</small>
+		</legend>
+
+
+
+			<form
+				align="center"
+				style="width: 70%"
+				action="{% url 'vm-vis_confirmOUT' pk=visitor.pk %}"
+				method="POST">
+					{% csrf_token %}
+
+
+
+					<div class="form-row">
+						<div class="col">
+							<div class="md-form">
+								<input
+									type="text"
+									name="vis_name"
+									value="{{ visitor.vis_name }}"
+									class="form-control"
+									placeholder="Full Name"
+									maxlength="60"
+									required id="id_vis_name"
+									readonly>
+							</div>
+						</div>
+					</div>
+
+					<div class="md-form my-3">
+						<input
+							type="text"
+							name="vis_id"
+							value="{{ visitor.vis_id }}"
+							class="form-control"
+							placeholder="ID Number"
+							maxlength="15"
+							required id="id_vis_id"
+							readonly>
+					</div>
+
+					<div class="md-form my-3">
+						<input
+							type="text"
+							name="vis_mob"
+							value="{{ visitor.vis_mob }}"
+							class="form-control"
+							placeholder="Mobile Number"
+							maxlength="15"
+							required id="id_vis_mob"
+							readonly>
+					</div>
+
+					<div class="md-form my-3">
+						<input
+							type="email"
+							name="vis_email"
+							value="{{ visitor.vis_email }}"
+							class="form-control"
+							placeholder="Email Address"
+							maxlength="60"
+							required id="id_vis_email"
+							readonly>
+					</div>
+
+					<div class="md-form my-3">
+						{{ form.date.as_hidden }}
+					</div>
+
+
+					<div class="form-group">
+						<button
+							class="btn btn-secondary btn-lg"
+							type="submit"
+							name="exit"
+							value="confirm">
+								Check OUT
+						</button>
+					</div>
+
+			</form>
+
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <div align="center">
+                    <legend class="border-bottom mb -4">
+                        Update Employee
+                    </legend>
+                </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_name"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Full Name"
+                        value="{{ object.emp_name }}"
+                        maxlength="60"
+                        required id="id_emp_name">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_id"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="ID Number"
+                        value="{{ object.emp_id }}"
+                        maxlength="15"
+                        required id="id_emp_id">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_mob"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Mobile Number"
+                        value="{{ object.emp_mob }}"
+                        maxlength="15"
+                        required id="id_emp_mob">
+               </div>
+
+               <div class="form-group">
+                    <input
+                        type="text"
+                        name="emp_email"
+                        class="form-control; requiredField; textinput textInput form-control"
+                        placeholder="Email"
+                        value="{{ object.emp_email }}"
+                        maxlength="254"
+                        required id="id_emp_email">
+               </div>
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+                <a class="btn btn-outline-secondary" href="{% url 'use-dashboard' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

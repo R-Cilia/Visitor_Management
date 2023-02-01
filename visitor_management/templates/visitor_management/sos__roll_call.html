@@ -1,0 +1,55 @@
+{% extends "visitor_management/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div align="center">
+            <legend class="content-section" align="center">
+               Employees on Premises
+            </legend>
+        </div>
+
+        {% for emp in employees %}
+            {% if emp.status == True %}
+
+            <div class="border-bottom mb-2">
+                <a class="mr-2" href="#">
+                    {{ emp.vis_name }}
+                </a>
+
+                <small class="text-muted">
+                    MOB:    {{ emp.vis_mob }}
+                </small>
+
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <div align="center">
+            <legend class="content-section" align="center">
+               Visitors on Premises
+            </legend>
+        </div>
+
+        {% for vis in visitors %}
+            {% if vis.status == True %}
+
+            <div class="border-bottom mb-2">
+                <a class="mr-2" href="#">
+                    {{ vis.vis_name }}
+                </a>
+
+                <small class="text-muted">
+                    MOB:    {{ vis.vis_mob }}
+                </small>
+
+            </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+
+
+{% endblock content %}
