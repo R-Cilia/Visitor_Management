@@ -36,7 +36,7 @@ Requirements
 
 Installation:
 
-    Clone the repository: git clone https://github.com/[your_username]/employee_management_system.git
+    Clone the repository: git clone https://github.com/R-Cilia/Visitor_Management.git
     Navigate to the project directory: cd employee_management_system
     Create a virtual environment: python -m venv env
     Activate the virtual environment: source env/bin/activate
